@@ -1,7 +1,11 @@
 ﻿
+using System.IO;
+
 
 namespace DAL
 {
+    internal class Injector() { public static void Main() { Console.WriteLine("DAL init"); } }
+
     public class Book {
 
         // Once a book has been entered into the record, we know that its title, author, genre, and id cannot change defacto
@@ -42,6 +46,14 @@ namespace DAL
         public string getAuthor() { return author; }
 
         public string getGenre() { return genre; }
+
+        public void print() {
+            Console.Write("\nID: ", bookId);
+            Console.Write("\nTitle: ", title);
+            Console.Write("\nAuthor: ", author);
+            Console.Write("\nGenre: ", genre);
+            Console.Write("\nIs Available: ", isAvailable);
+        }
     }
 
     public class Borrower {
@@ -100,6 +112,15 @@ namespace DAL
         private const string BOOKS_PATH = "books.txt";
         private const string BORROWERS_PATH = "borrowers.txt";
         private const string TRANSACTIONS_PATH = "transactions.txt";
+
+        public Library() {
+            books = new List<Book>();
+            borrowers = new List<Borrower>();
+            transactions = new List<Transaction>();
+            this.load();
+        }
+
+        public int getTransactionsCount() { return this.transactions.Count(); }
 
         public void addBook(Book book) {
             Book match = this.getBookByID(book.getBookID());
@@ -204,6 +225,23 @@ namespace DAL
 
         public void recordTransaction(Transaction transaction) {
             Book book = this.getBookByID(transaction.getBookId());
+            
+            if (book.getBookID() == -1) { Console.WriteLine("Referenced book doesn't exist"); return; }
+
+            if (book.getIsAvailable() == false && transaction.getIsBorrowed()) { Console.WriteLine("Book is not availble"); return; }
+
+            if (book.getIsAvailable() && transaction.getIsBorrowed() == false) { Console.WriteLine("Book has already been returned"); return; }
+
+            foreach (Transaction inDB in transactions) {
+                if (inDB.getTransactionId() == transaction.getTransactionId()) {
+                    Console.WriteLine("Given transaction already exists in DB");
+                    return;
+                }
+            }
+
+            this.transactions.Add(transaction);
+
+            this.saveTransactions();
         }
 
         public List<Book> getBorrowedBooksByBorrower(int borrowerId) {
@@ -241,21 +279,119 @@ namespace DAL
 
         private void saveBooks()
         {
+            StreamWriter db = File.AppendText(BOOKS_PATH);
+            Book book = this.books.Last();
+            db.WriteLine(book.getBookID().ToString());
+            db.WriteLine(book.getTitle());
+            db.WriteLine(book.getAuthor());
+            db.WriteLine(book.getGenre());
+            db.WriteLine(book.getIsAvailable().ToString());
 
+            Console.WriteLine("Saved Book");
         }
 
         private void saveBooks(bool overwriteFlag) {
-            
+            StreamWriter db = File.CreateText(BOOKS_PATH);
+
+            foreach (Book book in books) {
+                db.WriteLine(book.getBookID().ToString());
+                db.WriteLine(book.getTitle());
+                db.WriteLine(book.getAuthor());
+                db.WriteLine(book.getGenre());
+                db.WriteLine(book.getIsAvailable().ToString());
+            }
+
+            Console.WriteLine("Saved Books");
         }
 
-        private void saveBorrowers() { }
-        private void saveBorrowers(bool overwriteFlag) { }
+        private void saveBorrowers() {
+            StreamWriter db = File.AppendText(BORROWERS_PATH);
+            Borrower borrower = this.borrowers.Last();
+            db.WriteLine(borrower.getBorrowerId().ToString());
+            db.WriteLine(borrower.getName());
+            db.WriteLine(borrower.getEmail());
 
-        private void saveTransactions() { }
-        private void saveTransactions(bool overwriteFlag) { }
+            Console.WriteLine("Saved Borrower");
+        }
+        private void saveBorrowers(bool overwriteFlag) {
+            StreamWriter db = File.CreateText(BORROWERS_PATH);
 
-        public void load() { 
+            foreach (Borrower borrower in borrowers) {
+                db.WriteLine(borrower.getBorrowerId().ToString());
+                db.WriteLine(borrower.getName());
+                db.WriteLine(borrower.getEmail());
+            }
+
+            Console.WriteLine("Saved Borrowers");
+        }
+
+        private void saveTransactions() {
+            StreamWriter db = File.AppendText(TRANSACTIONS_PATH);
+            Transaction transaction = this.transactions.Last();
+            db.WriteLine(transaction.getTransactionId().ToString());
+            db.WriteLine(transaction.getBookId().ToString());
+            db.WriteLine(transaction.getBorrowerId().ToString());
+            db.WriteLine(transaction.getIsBorrowed().ToString());
+            db.WriteLine(transaction.getDate().ToString());
+
+            Console.WriteLine("Saved Transaction");
+        }
+        private void saveTransactions(bool overwriteFlag) {
+            StreamWriter db = File.CreateText(TRANSACTIONS_PATH);
+
+            foreach (Transaction transaction in this.transactions) {
+                db.WriteLine(transaction.getTransactionId().ToString());
+                db.WriteLine(transaction.getBookId().ToString());
+                db.WriteLine(transaction.getBorrowerId().ToString());
+                db.WriteLine(transaction.getIsBorrowed().ToString());
+                db.WriteLine(transaction.getDate().ToString());
+            }
+
+            Console.WriteLine("Saved transactions");
+        }
+
+        public void load() {
+            StreamReader sr = File.OpenText(BOOKS_PATH);
             
+            Console.WriteLine("Loading books");
+
+            while (!sr.EndOfStream) {
+                int id = int.Parse(sr.ReadLine().Trim());
+                string title = sr.ReadLine().Trim();
+                string author = sr.ReadLine().Trim();
+                string genre = sr.ReadLine().Trim();
+                bool isAvailable = bool.Parse(sr.ReadLine().Trim());
+                Book book = new Book(id, isAvailable, title, author, genre);
+                books.Add(book);
+            }
+            
+            sr = File.OpenText(BORROWERS_PATH);
+
+            Console.WriteLine("Loading borrowers");
+
+            while (!sr.EndOfStream) {
+                int id = int.Parse(sr.ReadLine().Trim());
+                string name = sr.ReadLine().Trim();
+                string email = sr.ReadLine().Trim();
+                Borrower borrower = new Borrower(id, name, email);
+                borrowers.Add(borrower);
+            }
+
+            sr = File.OpenText(TRANSACTIONS_PATH);
+
+            Console.WriteLine("Loading transactions");
+
+            while (!sr.EndOfStream) {
+                int id = int.Parse(sr.ReadLine().Trim());
+                int book = int.Parse(sr.ReadLine().Trim());
+                int borrower = int.Parse(sr.ReadLine().Trim());
+                bool isBorrowed = bool.Parse(sr.ReadLine().Trim());
+                DateTime date = DateTime.Parse(sr.ReadLine().Trim());
+                Transaction transaction = new Transaction(id, book, borrower, isBorrowed, date);
+                transactions.Add(transaction);
+            }
+
+            Console.WriteLine("Finished Loading Data");
         }
     }
 }

@@ -1,0 +1,14 @@
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\DAL\obj\Debug\net8.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\DAL\obj\Debug\net8.0\DAL.AssemblyInfoInputs.cache
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\DAL\obj\Debug\net8.0\DAL.AssemblyInfo.cs
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\DAL\obj\Debug\net8.0\DAL.csproj.CoreCompileInputs.cache
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\DAL\bin\Debug\net8.0\DAL.exe
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\DAL\bin\Debug\net8.0\DAL.deps.json
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\DAL\bin\Debug\net8.0\DAL.runtimeconfig.json
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\DAL\bin\Debug\net8.0\DAL.dll
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\DAL\bin\Debug\net8.0\DAL.pdb
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\DAL\obj\Debug\net8.0\DAL.dll
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\DAL\obj\Debug\net8.0\refint\DAL.dll
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\DAL\obj\Debug\net8.0\DAL.pdb
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\DAL\obj\Debug\net8.0\DAL.genruntimeconfig.cache
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\DAL\obj\Debug\net8.0\ref\DAL.dll

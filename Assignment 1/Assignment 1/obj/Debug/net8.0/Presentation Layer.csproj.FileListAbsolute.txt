@@ -1,0 +1,21 @@
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\obj\Debug\net8.0\Presentation Layer.GeneratedMSBuildEditorConfig.editorconfig
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\obj\Debug\net8.0\Presentation Layer.AssemblyInfoInputs.cache
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\obj\Debug\net8.0\Presentation Layer.AssemblyInfo.cs
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\obj\Debug\net8.0\Presentation Layer.csproj.CoreCompileInputs.cache
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\bin\Debug\net8.0\DAL.deps.json
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\bin\Debug\net8.0\DAL.runtimeconfig.json
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\bin\Debug\net8.0\DAL.exe
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\bin\Debug\net8.0\Presentation Layer.exe
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\bin\Debug\net8.0\Presentation Layer.deps.json
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\bin\Debug\net8.0\Presentation Layer.runtimeconfig.json
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\bin\Debug\net8.0\Presentation Layer.dll
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\bin\Debug\net8.0\Presentation Layer.pdb
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\bin\Debug\net8.0\DAL.dll
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\bin\Debug\net8.0\DAL.pdb
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\obj\Debug\net8.0\Presentation Layer.csproj.AssemblyReference.cache
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\obj\Debug\net8.0\Presenta.B0A29D85.Up2Date
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\obj\Debug\net8.0\Presentation Layer.dll
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\obj\Debug\net8.0\refint\Presentation Layer.dll
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\obj\Debug\net8.0\Presentation Layer.pdb
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\obj\Debug\net8.0\Presentation Layer.genruntimeconfig.cache
+C:\__WORK\UNI\SEM 6\WEB\Assignment 1\Assignment 1\obj\Debug\net8.0\ref\Presentation Layer.dll
