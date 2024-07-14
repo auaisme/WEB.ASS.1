@@ -262,7 +262,7 @@ namespace DAL
         }
 
         private int updateBookInDB(Book book) {
-            string query = $"UPDATE BOOKS SET TITLE = @title, AUTHOR = @author, GENRE = @genre, IS_AVAILBLE = @is_available WHERE ID = @id";
+            string query = $"UPDATE BOOKS SET TITLE = @title, AUTHOR = @author, GENRE = @genre, IS_AVAILABLE = @is_available WHERE ID = @id";
 
             SqlParameter id = new SqlParameter("@id", book.getBookID());
             SqlParameter title = new SqlParameter("@title", book.getTitle());
