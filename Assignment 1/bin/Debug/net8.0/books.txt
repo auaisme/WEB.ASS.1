@@ -1,0 +1,15 @@
+1
+a
+b
+c
+True
+2
+d
+a
+g
+True
+3
+f
+g
+h
+True
